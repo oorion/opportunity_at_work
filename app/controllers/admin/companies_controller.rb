@@ -2,7 +2,7 @@ class Admin::CompaniesController < ApplicationController
   before_action :authorize!
 
   def index
-    @companies = Company.all
+    @companies = Company.paginate(:page => params[:page])
   end
 
   def show
