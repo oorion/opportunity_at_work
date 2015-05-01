@@ -70,7 +70,7 @@ RSpec.feature "Company Signup Page", type: :feature do
         click_button('Create techHire account')
         expect(current_path).to eq(company_path(Company.last.id))
       end
-      expect(page.find('.success')).to have_content('Welcome Bob')
+      expect(page.find('.flash-notice')).to have_content('Welcome Bob')
     end
 
     it "can not signup a company if email validation fails" do
@@ -87,7 +87,8 @@ RSpec.feature "Company Signup Page", type: :feature do
         click_button('Create techHire account')
       end
       expect(current_path).to eq(companies_path)
-      expect(page.find('.errors')).to have_content("Please try again!")
+
+      expect(page.find('.flash-error')).to have_content("Please try again!")
     end
 
     it "can see dynamically generated cities" do
