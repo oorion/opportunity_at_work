@@ -1,7 +1,7 @@
 <h1>TechHire Locations</h1>
 <h4>TechHire Cities</h4>
 
-<%=tag("div", class: "map", :data => {:techhire_locations => @techhire_locations, :coordinates => @techhire_locations.map {|techhire_location| techhire_location.d3_coordinates}})%>
+<%= tag("div", class: "map", :data => {:techhire_locations => @techhire_locations, :coordinates => @techhire_locations.map {|techhire_location| techhire_location.d3_coordinates}}) %>
 
 <div class="city-buttons col-md-offset-8 col-md-4">
   <button name="button">Chicago</button>
