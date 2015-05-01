@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="panel-body col-md-4">
+  <div class="panel-body col-md-3">
     <ul class="nav navbar-nav">
       <li class="panel panel-info" id="dropdown">
         <a data-toggle="collapse" href="#dropdown-lvl1">
@@ -21,7 +21,7 @@
       <div class="company-data">
         <h3 class="well-header">Company Data</h3>
         <div class="uncontacted-companies">
-          Companies Not Yet Contacted: <%= Company.company_count_by_status("uncontacted") %>
+          Uncontacted Companies: <%= Company.company_count_by_status("uncontacted") %>
         </div>
         <div class="contacted-companies">
           Contacted Companies: <%= Company.company_count_by_status("contacted") %>
@@ -30,7 +30,7 @@
           Confirmed Companies: <%= Company.company_count_by_status("confirmed") %>
         </div>
         <div class="dead-companies">
-          Companies No Longer Participating: <%= Company.company_count_by_status("dead") %>
+          Inactive Companies: <%= Company.company_count_by_status("dead") %>
         </div>
       </div>
       <div class="companies-by-city">
