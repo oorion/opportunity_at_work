@@ -27,6 +27,7 @@ $(document).ready(function() {
           return d.properties.NAME
         })
         .attr("d", path)
+
         var marks = [];
         $(".map").data("coordinates").forEach(function(coordinate) {
           marks.push(coordinate);
