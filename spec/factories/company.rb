@@ -8,5 +8,6 @@ FactoryGirl.define do
     email "google@email.com"
     hiring 1
     hire_count 5
+    status "uncontacted"
   end
 end

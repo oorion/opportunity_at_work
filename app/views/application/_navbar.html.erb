@@ -14,31 +14,40 @@
               <ul class="dropdown-menu mega-dropdown-menu row">
                 <li class="col-sm-3">
                   <ul>
-                    <li class="dropdown-header">Content Manager</li>
+                    <li class="dropdown-header">View As User</li>
                     <li class="divider"></li>
-                    <li><a href="#">View As User <span class="glyphicon glyphicon-chevron-down pull-right"></span></a></li>
+                    <li class="view-home"><a href="/home">Home<span class="glyphicon glyphicon-log-in pull-right"></span></a></li>
+                    <li class="view-tools-resources"><a href="/tools-resources">Tools/Resources<span class="glyphicon glyphicon-log-in pull-right"></span></a></li>
+                    <li class="view-signup"><a href="/signup">Sign Up<span class="glyphicon glyphicon-log-in pull-right"></span></a></li>
+                    <li class="view-learn-more"><a href="/learn-more">Learn More<span class="glyphicon glyphicon-log-in pull-right"></span></a></li>
+                    <li class='view-techhire-locations'><a href="/techhire-locations">Tech Hire Locations<span class="glyphicon glyphicon-log-in pull-right"></span></a></li>
                   </ul>
                     </li>
                     <li class="col-sm-4">
                   <ul>
-                    <li class="dropdown-header manage-static-link"><a href="#">Manage Static Content <span class="glyphicon glyphicon-list"></span></a></li>
-                    <li class="dropdown-header manage-pdf"><a href="#">Manage PDF Files <span class="glyphicon glyphicon-file"></span></a></li>
-                    <li class="dropdown-header manage-video"><a href="#">Manage Video Files <span class="glyphicon glyphicon-film"></span></a></li>
-                    <li class="dropdown-header manage-map"><a href="#">Manage Map <span class="glyphicon glyphicon-pushpin"></span></a></li>
+                    <li class="dropdown-header">Manage Content</li>
+                    <li class="divider"></li>
+                    <li class="dropdown-header manage-static-link"><a href="/admin/contents">Manage Static Content <span class="glyphicon glyphicon-list"></span></a></li>
+                    <li class="dropdown-header manage-pdf"><a href="/admin/pdfs">Manage PDF Files <span class="glyphicon glyphicon-file"></span></a></li>
+                    <li class="dropdown-header manage-video"><a href="/admin/videos">Manage Video Files <span class="glyphicon glyphicon-film"></span></a></li>
+                    <li class="dropdown-header manage-map"><a href="/admin/static_pages/techhire_locations">Manage Map <span class="glyphicon glyphicon-pushpin"></span></a></li>
                   </ul>
                     </li>
                     <li class="col-sm-4">
                   <ul>
-                    <li class="dropdown-header manage-tools"><a href="#">Tools/Resources <span class="glyphicon glyphicon-wrench"></a></li>
-                    <li class="dropdown-header manage-learn"><a href="#">Learn More <span class="glyphicon glyphicon-education"></span></a></li>
-                    <li class="dropdown-header manage-sign-up"><a href="#">Company Sign Up <span class="glyphicon glyphicon-pencil"></span></a></li>
-                    <li class="dropdown-header manage-home"><a href="#">Home <span class="glyphicon glyphicon-home"></span></a></li>
+                    <li class="dropdown-header">Change Page Display</li>
+                    <li class="divider"></li>
+                    <li class="dropdown-header manage-tools"><a href="/admin/static_pages/tools_resources">Tools/Resources <span class="glyphicon glyphicon-wrench"></a></li>
+                    <li class="dropdown-header manage-learn"><a href="/admin/static_pages/learn_more">Learn More <span class="glyphicon glyphicon-education"></span></a></li>
+                    <li class="dropdown-header manage-home"><a href="/admin/static_pages/home">Home <span class="glyphicon glyphicon-home"></span></a></li>
                   </ul>
                     </li>
                   </ul>
                     </li>
                   </ul>
-                  <a class="nav navbar-right" href="#">Logout</a>
+                  <div class="nav navbar-right">
+                  <%= link_to "Logout", destroy_user_session_path(current_user.id), method: :delete %>
+                </div>
                 </div><!-- /.nav-collapse -->
               </nav>
             </div>
