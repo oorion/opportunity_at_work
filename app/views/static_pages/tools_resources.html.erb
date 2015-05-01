@@ -9,7 +9,7 @@
   <p>
     Watch the short video and download the playbook to get started today.
   </p>
-  <%= link_to 'Download Pdf', pdf_path(@pdf), class: "button" %>
+  <%= link_to 'Download Pdf', pdf_path(@pdf), class: "button" if @pdf%>
 </div>
 <div class="video-1 embed-container col-md-6">
   <%= YoutubeHelper.embed("https://www.youtube.com/watch?v=ZzQ3eBerHfM") %>

@@ -32,13 +32,15 @@ TechhireLocation.create(
 )
 
 TechhireLocation.create(
-  city: "St. Louis",
+  city: "St.Louis",
   state: "Missouri"
 )
 
 TechhireLocation.create(
   city: "Salt Lake City",
-  state: "Utah"
+  state: "Utah",
+  latitude: 40.7603,
+  longitude: -111.8882
 )
 
 TechhireLocation.create(
