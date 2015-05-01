@@ -10,3 +10,26 @@
     </div>
   <% end %>
 </div>
+
+<div class="row">
+  <table class="table table-condensed">
+    <thead>
+    <tr class="warning">
+      <th data-field='title'>Title</th>
+      <th data-field='body'>Last Updated</th>
+      <th data-field="Edit/Delete">Edit/Delete</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @pdfs.each do |pdf| %>
+      <tr id="table-row" data-title= "<%= pdf.id %>">
+        <td><%= pdf.pdf_file_file_name %></td>
+        <td><%= pdf.updated_at.strftime("Updated on %m/%d/%Y %I:%M%p") %></td>
+        <td> <%= link_to "Edit", edit_admin_pdf_path(pdf), class: "btn btn-primary" %>
+          <%= link_to "Delete", admin_pdf_path(pdf), method: :destroy, class: "btn btn-primary" %> </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>

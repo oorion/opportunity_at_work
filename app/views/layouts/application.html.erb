@@ -11,14 +11,14 @@
   <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
 </head>
 <body>
-
-  <% if current_user && current_user.admin? %>
-    <%= render 'navbar' %>
-  <% end %>
+  <div class="container">
+    <% if current_user && current_user.admin? %>
+      <%= render 'navbar' %>
+    <% end %>
 
     <%= render partial: "layouts/flash" %>
 
     <%= yield %>
-  </body>
-</div>
+  </div>
+</body>
 </html>
