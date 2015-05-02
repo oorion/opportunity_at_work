@@ -15,7 +15,7 @@ RSpec.describe CompaniesController, :type => :controller do
                        }
     original_company_count = Company.count
     post :create, company: company_params
-    assert_redirected_to company_path(Company.last.id)
+    assert_redirected_to companies_welcome_path
     expect(original_company_count + 1).to eq(Company.count)
   end
 end

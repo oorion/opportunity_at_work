@@ -11,18 +11,21 @@ class CompaniesController < ApplicationController
     company = Company.new(company_params)
     if company.save
       User.create(email: company_params[:email],
-                         name: company_params[:name],
-                         title: company_params[:title],
-                         password: User.generate_password,
-                         company_id: company.id
-                        )
-      flash[:notice] = "Welcome #{company.name}"
-      redirect_to company_path(company.id)
+                  name: company_params[:name],
+                  title: company_params[:title],
+                  password: User.generate_password,
+                  company_id: company.id
+                 )
+      flash[:success] = "Welcome #{company.organization}"
+      redirect_to companies_welcome_path
     else
       flash[:error] = "Please try again!"
       @company = Company.new
       render :new
     end
+  end
+
+  def welcome
   end
 
   private

@@ -19,6 +19,7 @@ $(document).ready(function() {
 
     // as written, the function(error, us) callback won't fire until the d3.json finishes
     d3.json("json/usa_map.json", function(error, us) {
+      console.log(error)
       g.selectAll("path")
         .data(us.features)
         .enter()
@@ -44,7 +45,6 @@ $(document).ready(function() {
             .attr('height', 20)
             .attr("xlink:href","red_pin.png")
             .attr("transform", function(d) {return "translate(" + projection([d.longitude - 0.9, d.latitude + 1.2]) + ")";});
-
     });
   }
 });
