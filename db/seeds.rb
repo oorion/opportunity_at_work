@@ -5,6 +5,10 @@
 
 User.create(email: "admin@gmail.com", password: "password", role: 1)
 
+20.times do
+  Content.create(title:Faker::Lorem::sentence(3), body: Faker::Lorem.sentence(3))
+end
+
 # techhire_locations
 TechhireLocation.create(
   city: "Louisville",

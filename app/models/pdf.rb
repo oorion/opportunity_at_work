@@ -3,6 +3,18 @@ class Pdf < ActiveRecord::Base
     :path => "public/assets/pdfs/:basename.:extension",
     :url => "public/assets/pdfs/:basename.:extension"
 
+
+
+
+
+
+
+
+
+
+
+
+
   validates_attachment_content_type :pdf_file,
                                     :content_type => [ 'application/pdf' ],
                                     :message => "Only pdf files are allowed.",
