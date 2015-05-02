@@ -1,4 +1,4 @@
-<h1>Upload a new video</h1>
+<h1 class="text-center">Upload a new video</h1>
 <br>
 <%= form_for(:video, url:admin_videos_path, html: { class: "form-horizontal"} ) do |f| %>
 <div class="form-group">
@@ -14,7 +14,8 @@
   <%= f.submit "Submit", class: "btn btn-primary col-sm-2 col-sm-offset-5" %>
 <% end %>
 
-<div class="row">
+<div class="row table-index">
+  <h3 class="text-center"><u>All Videos</u></h3>
   <table class="table table-condensed">
     <thead>
     <tr class="warning">
