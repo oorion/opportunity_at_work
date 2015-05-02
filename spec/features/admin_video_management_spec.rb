@@ -3,11 +3,13 @@ require 'rails_helper'
 RSpec.feature "AdminVideoManagement", type: :feature do
   it "should be able to upload a video" do
     visit 'admin/videos'
-    fill_in "video[title]", with: "Title"
+    fill_in "video[title]", with: "Title of Video"
     fill_in "video[url]", with: "https://www.youtube.com/watch?v=2HFLwotYfl0"
     click_button "Submit"
 
     expect(page).to have_content("Video succesfully uploaded")
+    expect(page).to have_content("https://www.youtube.com/watch?v=2HFLwotYfl0")
+    expect(page).to have_content("Title of Video")
     expect(current_path).to eql(admin_videos_path)
   end
 
