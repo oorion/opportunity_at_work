@@ -28,16 +28,19 @@ $(document).ready(function() {
           return d.properties.NAME
         })
         .attr("d", path)
+
         var marks = [];
         $(".map").data("coordinates").forEach(function(coordinate) {
           marks.push(coordinate);
         })
 
+        console.log(marks)
         svg.selectAll(".mark")
             .data(marks)
             .enter()
             .append("image")
             .attr('class', function(d,i) { return "mark" + (i) })
+            .attr("id", function(d,i) { return d.city })
             .attr('width', 20)
             .attr('height', 20)
             .attr("xlink:href","red_pin.png")

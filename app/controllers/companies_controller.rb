@@ -19,7 +19,7 @@ class CompaniesController < ApplicationController
       flash[:success] = "Welcome #{company.organization}"
       redirect_to companies_welcome_path
     else
-      flash[:errors] = "Please try again!"
+      flash[:error] = "Please try again!"
       @company = Company.new
       render :new
     end
