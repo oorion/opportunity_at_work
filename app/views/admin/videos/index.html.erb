@@ -13,3 +13,26 @@
   <br>
   <%= f.submit "Submit", class: "btn btn-primary col-sm-2 col-sm-offset-5" %>
 <% end %>
+
+<div class="row">
+  <table class="table table-condensed">
+    <thead>
+    <tr class="warning">
+      <th data-field='title'>Title</th>
+      <th data-field='body'>Url</th>
+      <th data-field="Edit/Delete">Edit/Delete</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @videos.each do |video| %>
+      <tr id="table-row" data-title= "<%= video.title %>">
+        <td><%= video.title %></td>
+        <td><%= video.url %></td>
+        <td> <%= link_to "Edit", edit_admin_video_path(video), class: "btn btn-primary" %>
+          <%= link_to "Delete", admin_video_path(video), method: :destroy, class: "btn btn-primary" %> </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
