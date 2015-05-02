@@ -1,5 +1,18 @@
-<%= form_for [:admin, @company] do |f| %>
-  <%= render "signup_form", f: f  %>
+<%= form_for @company, url: admin_company_path(@company.id), method: :put do |f| %>
+  <div class="form-group">
+    <%= f.label(:organization, "Organization") %>
+    <%= f.text_field :organization, required: true  %><br>
+  </div>
+  <div class="form-group">
+    <%= f.label(:state, "State") %>
+    <%= f.select :state, options_for_select(state_helper, @company.state) %>
+  </div>
+  <div class="form-group">
+    <%= f.label(:city, "City") %>
+    <% cache @cities do %>
+    <%= f.grouped_collection_select :city, State.all, :usa_cities, :abbr, :name, :name %><br>
+    <% end %>
+  </div>
   <div class="form-group">
     <%= f.check_box :hiring %>
     <%= f.label(:hiring, "This company is hiring") %>
@@ -8,11 +21,13 @@
     <%= f.number_field :hire_count, in: 0..500, step: 1, value: @company.hire_count %><br>
     <%= f.label(:hire_count, "Number of people hiring") %>
   </div>
-  <div class="form-group">
-    <%= f.hidden_field :status %>
-  </div>
-    <%= f.submit "Submit" %>
+  <%= f.hidden_field :status %>
+  <%= f.hidden_field :name %>
+  <%= f.hidden_field :title %>
+  <%= f.hidden_field :email %>
+  <%= f.submit "Submit" %>
 <% end %>
+
 <script>
 $("#new_company").validate();
 </script>

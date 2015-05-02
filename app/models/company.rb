@@ -1,6 +1,6 @@
 class Company < ActiveRecord::Base
-  has_many :users
-  has_many :notes
+  has_many :users, dependent: :destroy
+  has_many :notes, dependent: :destroy
 
   validates :name, :organization, :title, :state, :city, presence: true
   validates :status, inclusion: ["contacted", "uncontacted", "dead", "confirmed"]

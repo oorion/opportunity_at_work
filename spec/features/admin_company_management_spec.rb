@@ -24,9 +24,9 @@ RSpec.feature "AdminCompanyManagement", type: :feature do
       expect(current_path).to eq(admin_company_path(companies.first.id))
 
       expect(page).to have_content(companies.first.organization)
-      expect(page).to have_content(companies.first.name)
-      expect(page).to have_content(companies.first.title)
-      expect(page).to have_content(companies.first.email)
+      expect(page).to have_content(companies.first.users.first.name)
+      expect(page).to have_content(companies.first.users.first.title)
+      expect(page).to have_content(companies.first.users.first.email)
       expect(page).to have_content(companies.first.city)
       expect(page).to have_content(companies.first.state)
       expect(page).to have_content(companies.first.status.capitalize)
@@ -109,23 +109,17 @@ RSpec.feature "AdminCompanyManagement", type: :feature do
       click_link("Edit Company")
       expect(current_path).to eq(edit_admin_company_path(company.id))
 
-      fill_in "company[name]", with: "Mr. Smithers"
       fill_in "company[organization]", with: "Netflix"
-      fill_in "company[title]", with: "President"
       select "WY", from: "company[state]"
       select "Laramie", from: "company[city]"
-      fill_in "company[email]", with: "smithy@example.com"
       find(:css, "#company_hiring").set(false)
       fill_in "company[hire_count]", with: 7
       click_button("Submit")
 
       expect(current_path).to eq(admin_company_path(company.id))
-      expect(page).to have_content("Mr. Smithers")
       expect(page).to have_content("Netflix")
-      expect(page).to have_content("President")
       expect(page).to have_content("WY")
       expect(page).to have_content("Laramie")
-      expect(page).to have_content("smithy@example.com")
       expect(page).to have_content("7")
     end
 
@@ -141,12 +135,9 @@ RSpec.feature "AdminCompanyManagement", type: :feature do
       click_link(company.organization)
       click_link("Edit Company")
 
-      expect(page).to have_selector("input[value='Bob']")
       expect(page).to have_selector("input[value='Google']")
-      expect(page).to have_selector("input[value='RoR Developer']")
       expect( find(:css, 'select#company_state').value ).to eq('CO')
       expect( find(:css, 'select#company_city').value ).to eq('Denver')
-      expect(page).to have_selector("input[value='google@email.com']")
       expect(page).to have_selector("input[value='5']")
     end
   end

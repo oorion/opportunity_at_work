@@ -18,15 +18,15 @@ RSpec.feature "AdminDashboard", type: :feature do
       create(:company)
       login
       expect(page).to have_content('Google')
-      expect(page).to have_content('Bob')
-      expect(page).to have_content('google@email.com')
+      expect(page).to have_content('John')
+      expect(page).to have_content('john@example.com')
     end
 
     it "can see company statistics on Admin Dashboard" do
       create(:company)
       login
       within(".company-statistics") do
-        expect(page).to have_content('Companies Not Yet Contacted: 1')
+        expect(page).to have_content('Uncontacted Companies: 1')
       end
 
       within(".companies-by-city") do
