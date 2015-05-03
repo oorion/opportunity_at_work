@@ -32,6 +32,8 @@
                 </th>
             </tr>
           </thead>
+
+
           <tbody>
             <% @companies.each do |company| %>
               <tr>
@@ -49,6 +51,8 @@
               </tr>
             <% end %>
           </tbody>
+
+          <%= will_paginate %>
         </table>
       </div>
     </div>

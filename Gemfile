@@ -20,7 +20,8 @@ gem 'devise'
 gem 'simplecov', :group => :test
 gem 'bootstrap-sass', '~> 3.3.4'
 gem 'sass-rails', '>= 3.2'
-gem 'will_paginate', '~> 3.0.6'
+gem 'will_paginate',           '3.0.7'
+gem 'bootstrap-will_paginate', '0.0.10'
 
 group :development, :test do
   gem 'byebug'
