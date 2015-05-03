@@ -230,7 +230,7 @@ class Seed
                       slot: x + 1)
     end
 
-    20.times do
+    150.times do
       Content.create(title:Faker::Lorem::sentence(3), body: Faker::Lorem.sentence(3))
     end
   end
