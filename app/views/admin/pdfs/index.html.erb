@@ -16,7 +16,7 @@
 
   <label for="search_table"><strong>All Table Columns are Searchable by Keyword</strong></label><br>
   <input type="text" id="search_table" placeholder="keyword">
-  
+
   <table class="table table-condensed">
     <thead>
     <tr class="warning">
@@ -30,7 +30,7 @@
     <% @pdfs.each do |pdf| %>
       <tr id="table-row" data-title= "<%= pdf.id %>">
         <td><%= pdf.pdf_file_file_name %></td>
-        <td><%= updated_at_time(pdf)</td>
+        <td><%= updated_at_time(pdf) %></td>
         <td> <%= link_to "Edit", edit_admin_pdf_path(pdf), class: "btn btn-primary" %>
           <%= link_to "Delete", admin_pdf_path(pdf), method: :destroy, class: "btn btn-primary" %> </td>
       </tr>
