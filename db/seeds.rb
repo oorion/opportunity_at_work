@@ -219,6 +219,8 @@ class Seed
 
   def build_users
     User.create(email: "admin@gmail.com", password: "password", role: 1)
+    user1 = User.create(email: "user@example.com", password: "password", role: 0)
+    Company.first.users << user1
   end
 
 
