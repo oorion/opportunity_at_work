@@ -142,7 +142,7 @@ class Seed
   #Companies
   def build_uncontacted_companies
     i = 1
-    10.times do
+    50.times do
       Company.create(
       name: "user#{i}",
       organization: "company#{i}",
@@ -160,7 +160,7 @@ class Seed
 
   def build_contacted_companies
     i = 11
-    10.times do
+    50.times do
       Company.create(
         name: "user#{i}",
         organization: "company#{i}",
@@ -177,7 +177,7 @@ class Seed
 
   def build_confirmed_companies
     i = 21
-    9.times do
+    50.times do
       Company.create(
         name: "user#{i}",
         organization: "company#{i}",
@@ -195,7 +195,7 @@ class Seed
 
   def build_dead_companies
     i = 31
-    10.times do
+    51.times do
       Company.create(
         name: "user#{i}",
         organization: "company#{i}",
@@ -230,7 +230,7 @@ class Seed
                       slot: x + 1)
     end
 
-    150.times do
+    101.times do
       Content.create(title:Faker::Lorem::sentence(3), body: Faker::Lorem.sentence(3))
     end
   end

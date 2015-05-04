@@ -9,19 +9,19 @@
           <button class="btn btn-default btn-xs btn-filter"><span class="glyphicon glyphicon-filter"></span> Filter</button>
         </div>
       </div>
-          <table class="table">
+          <table class="table table-index">
             <thead>
               <tr class="filters">
-                <th><input type="text" class="form-control company-id" placeholder="ID" disabled></th>
-                <th><input type="text" class="form-control" placeholder="Organization" disabled></th>
-                <th><input type="text" class="form-control" placeholder="Contact" disabled></th>
-                <th><input type="text" class="form-control" placeholder="Title" disabled></th>
-                <th><input type="text" class="form-control" placeholder="City" disabled></th>
-                <th><input type="text" class="form-control" placeholder="State" disabled></th>
-                <th><input type="text" class="form-control" placeholder="email" disabled></th>
-                <th><input type="text" class="form-control" placeholder="contacted" disabled></th>
-                <th><input type="text" class="form-control" placeholder="hiring" disabled></th>
-                <th><input type="text" class="form-control" placeholder="hire_count" disabled></th>
+                <th><input type="text" data-column="company-id" id="search_id" class="form-control table-filter" placeholder="ID"></th>
+                <th><input type="text" data-column="company-org" id="search_organization" class="form-control table-filter" placeholder="Organization"></th>
+                <th><input type="text" data-column="company-contact" id="search_contact" class="form-control table-filter" placeholder="Contact"></th>
+                <th><input type="text" data-column="company-title" id="search_title" class="form-control table-filter" placeholder="Title"></th>
+                <th><input type="text" data-column="company-city" id="search_city" class="form-control table-filter" placeholder="City"></th>
+                <th><input type="text" data-column="company-state" id="search_state" class="form-control table-filter" placeholder="State"></th>
+                <th><input type="text" data-column="company-email" id="search_email" class="form-control table-filter" placeholder="email"></th>
+                <th><input type="text" data-column="company-contacted" id="search_contacted" class="form-control table-filter" placeholder="contacted"></th>
+                <th><input type="text" data-column="company-hiring" id="search_hiring" class="form-control table-filter" placeholder="hiring"></th>
+                <th><input type="text" data-column="company-hire_count" id="search_count" class="form-control table-filter" placeholder="hire_count"></th>
                 <th>
                   <div class="checkbox-inline">
                     <input type="checkbox" id="checkbox1" class="large" data-label-prepend="prefix">
@@ -37,22 +37,21 @@
           <tbody>
             <% @companies.each do |company| %>
               <tr>
-                <td class="id"><%= company.id %></td>
-                <td class="Organization"><%= link_to company.organization,
+                <td class="id" data-column="company-id"><%= company.id %></td>
+                <td class="Organization" data-column="company-org"><%= link_to company.organization,
                     admin_company_path(company.id) %></td>
-                <td class="contact"><%= company.name %></td>
-                <td class="contact-title"><%= company.title %></td>
-                <td class="city"><%= company.city %></td>
-                <td class="state"><%= company.state %></td>
-                <td class="email"><%= company.email %></td>
-                <td class="contacted"><%= company.status %></td>
-                <td class="hiring"><%= company.hiring %></td>
-                <td class="hire_count"><%= company.hire_count %></td>
+                <td class="contact" data-column="company-contact"><%= company.name %></td>
+                <td class="contact-title" data-column="company-title"><%= company.title %></td>
+                <td class="city" data-column="company-city"><%= company.city %></td>
+                <td class="state" data-column="company-state"><%= company.state %></td>
+                <td class="email" data-column="company-email"><%= company.email %></td>
+                <td class="contacted" data-column="company-contacted"><%= company.status %></td>
+                <td class="hiring" data-column="company-hiring"><%= company.hiring %></td>
+                <td class="hire_count" data-column="company-hire_count"><%= company.hire_count %></td>
               </tr>
             <% end %>
           </tbody>
 
-          <%= will_paginate %>
         </table>
       </div>
     </div>
