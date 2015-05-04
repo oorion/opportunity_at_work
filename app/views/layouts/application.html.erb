@@ -13,8 +13,10 @@
 <body>
   <% if current_user && current_user.admin? %>
     <%= render 'navbar' %>
+  <% else %>
+    <%= render 'user_navbar' %>
   <% end %>
-
+  
   <%= render partial: "layouts/flash" %>
 
   <%= yield %>
