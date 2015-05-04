@@ -1,7 +1,7 @@
 $(document).ready(function() {
   if ($(".table-index").length > 0 ) {
     $('#search_table').keyup(function() {
-      searchByColumns($(this).val());
+      searchByColumns($(this).val().toLowerCase());
     });
     // ----- Intermediate solution between rails and ember
 
@@ -18,7 +18,8 @@ $(document).ready(function() {
       allCells.each(function(i, cell) {
         var column = $(cell).attr('data-column');
         // iterating through each cell and getting the data-column attribute
-        rowData[column] = $(cell).text();
+
+        rowData[column] = $(cell).text().toLowerCase();
         // get the value of the cell
       });
 
@@ -28,11 +29,13 @@ $(document).ready(function() {
 
     $('.table-filter').keyup(function(e) {
       var column = $(this).attr('data-column');
-      var searchTerm = $(this).val();
-
+      var searchTerm = $(this).val().toLowerCase();
+      
       // Hide/show the rows based on filter searchTerm
       var $rows = $('.table-index tbody tr');
       tableData.each(function(i, rowData) {
+        // the below isMatch is basically checkint if the rowData/the data in each cell lowercased
+        // is eql to the searchTerm which is lowercased.
         var isMatch = rowData[column].indexOf(searchTerm) != -1;
         var $row = $($rows[i]);
 
@@ -44,42 +47,6 @@ $(document).ready(function() {
       });
     })
 
-
-      /* rails way with filtering with ajax call. It is more scalable than what I am currently doing
-      which is hiding and showing Dom elements. Using a filter button and making a
-      Rails request is much more elegant than the javasscript solution. The rails solution
-      is better in every way except that it you don't get the live updating on the page.
-      You need to click a button to make a trip to the server. */
-
-      // button.click(function() {
-      //   // Find all inputs with search term
-      //   var filtersWithValue = $('.table-filter').filter(function() {
-      //     return $(this).val() != "";
-      //   });
-      //
-      //   // Collect input key/value for ajax
-      //   // e.g., { "company-id": 3, "company-foo": "bar" }
-      //   var filters = {};
-      //   filtersWithValue.each(function(i, filter) {
-      //     var column = $(filter).attr('data-column');
-      //     filters[column] = $(filter).val();
-      //   });
-      //
-      //   // Make ajax call
-      //   $.ajax({
-      //     //
-      //     method: "GET",
-      //     url: index
-      //     data: {
-      //       filters: filters,
-      //       sortField: 'foobar'
-      //     }
-      //   });
-
-
-      //
-      // })
-
     function searchByColumns(searchVal) {
       var table = $('.table-index')
       table.find('tr').each(function(index, row){
@@ -88,8 +55,8 @@ $(document).ready(function() {
           var found = false;
     		  allDataPerRow.each(function(index, td) {
             var regExp = new RegExp(searchVal, "i");
-
-            if(regExp.test($(td).text())) {
+            var cellDataLowercased = ($(td).text().toLowerCase())
+            if(regExp.test(cellDataLowercased)) {
               found = true
               return false;
             }
