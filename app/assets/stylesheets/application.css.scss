@@ -116,7 +116,6 @@ body {
 .cms-instructions-header {
   padding-left: 35px;
   padding-bottom: 20px;
-  // color: #147BD5;
   margin-left: 100px;
 }
 
@@ -154,4 +153,15 @@ body {
   padding-left: 1px;
   padding-right: 1px;
   text-align: left;
+}
+
+.login-form {
+  border: solid;
+  border-width: 1px;
+  border-color: #147BD5;
+  width: 30%;
+}
+
+.actions {
+
 }
