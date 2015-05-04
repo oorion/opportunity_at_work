@@ -1,0 +1,12 @@
+<h1><%= @company.organization %></h1>
+<h4><%= @company.city %></h4>
+<h4><%= @company.state %></h4>
+<h4><%= @company.hire_count %></h4>
+
+<% @company.users.each do |user| %>
+  <div class="user">
+    <h4><%= user.name %></h4>
+    <h4><%= user.title %></h4>
+    <h4><%= user.email %></h4>
+  </div>
+<% end %>

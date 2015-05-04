@@ -16,9 +16,9 @@ class Admin::CompaniesController < ApplicationController
 
   def update
     company = Company.find(params[:id])
-    company.update(update_params)
-    company.update(status: params[:company][:status])
-    if company.save
+    if company.update(status: params[:company][:status]) && company.update(update_params)
+      redirect_to admin_company_path(company.id)
+    elsif company.update(status: params[:company][:status])
       redirect_to admin_company_path(company.id)
     else
       flash[:errors] = "Please try again!"

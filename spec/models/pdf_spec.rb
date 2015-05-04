@@ -13,6 +13,6 @@ RSpec.describe Pdf, type: :model do
     image = build(:pdf, pdf_file: File.new(Rails.root.join('spec', 'fixtures', 'whitehouse_jpeg.jpeg')))
 
     expect(image).to be_invalid
-    expect(image.errors.messages[:pdf_file][0]).to eql("only pdf files are allowed")
+    expect(image.errors.messages[:pdf_file][0]).to eql("Only pdf files are allowed.")
   end
 end

@@ -1,0 +1,39 @@
+<%= form_for(:content, url:admin_contents_path, html: { class: "form-horizontal"} ) do |f| %>
+  <h1>Create New Content </h1>
+  <div class="form-group">
+    <%= f.label :title, "Title", class: "col-sm-2 control-label" %>
+    <%= f.text_area :title, placeholder: "Enter Descriptive Title", class: "col-sm-5" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :body, "Add New Content", class:"col-sm-2 control-label" %>
+    <%= f.text_area :body, rows: 8, placeholder: "Write Descriptive Content For Site", class: "col-sm-5" %>
+  </div>
+  <br>
+  <%= f.submit "Submit", class: "btn btn-primary col-sm-2 col-sm-offset-5" %>
+<% end %>
+
+</div>
+
+<div class="row">
+  <table class="table table-condensed">
+    <thead>
+    <tr class="warning">
+      <th data-field='title'>Title</th>
+      <th data-field='body'>Body</th>
+      <th data-field="Edit/Delete">Edit/Delete</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @contents.each do |content| %>
+      <tr id="table-row" data-title= "<%= content.title %>">
+        <td><%= content.title %></td>
+        <td><%= truncate(content.body, length: 17, separator: ' ') %></td>
+        <td> <%= link_to "Edit", edit_admin_content_path(content), class: "btn btn-primary" %>
+          <%= link_to "Delete", admin_content_path(content), method: :destroy, class: "btn btn-primary" %> </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>

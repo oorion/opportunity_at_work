@@ -1,6 +1,6 @@
 class Company < ActiveRecord::Base
-  has_many :users
-  has_many :notes
+  has_many :users, dependent: :destroy
+  has_many :notes, dependent: :destroy
 
   validates :name, :organization, :title, :state, :city, presence: true
   validates :status, inclusion: ["contacted", "uncontacted", "dead", "confirmed"]
@@ -18,4 +18,12 @@ class Company < ActiveRecord::Base
                      "Confirmed" => "confirmed",
                      "Dead" => "dead"
                    }
+
+  def self.company_count_by_status(status)
+    send(status.to_sym).count
+  end
+
+  def self.company_count_by_city
+    group(:city).count.sort_by { |_key, value| value }.pop(10).reverse
+  end
 end

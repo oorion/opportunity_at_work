@@ -1,5 +1,7 @@
 class Video < ActiveRecord::Base
   validate :verify_youtube_video
+  validates :title, uniqueness: { message: "Video title already exists."}
+  validates :url, uniqueness: { message: "Video url already exists."}
 
   validates :slot, numericality: { only_integer: true,
                                    greater_than_or_equal_to: 1,
@@ -17,7 +19,7 @@ class Video < ActiveRecord::Base
 
   def verify_youtube_video
     yt_regex = /www\.youtube\.com\/watch\?v=([a-zA-Z0-9_-]*)/
-    
+
     if self.url.blank?
       errors[:error] << "Please enter a valid url."
     elsif !self.url.match(yt_regex)

@@ -1,0 +1,15 @@
+<h1>Upload a new video</h1>
+<br>
+<%= form_for(:video, url:admin_videos_path, html: { class: "form-horizontal"} ) do |f| %>
+<div class="form-group">
+  <%= f.label :title, "Title of Video", class:"col-sm-2 control-label" %>
+  <%= f.text_field :title, placeholder: "ex: Whitehouse Tour", class: "col-sm-5" %>
+</div>
+  <br>
+  <div class="form-group">
+    <%= f.label :url, "YouTube Url Here -->", class: "col-sm-2 control-label" %>
+    <%= f.text_field :url, placeholder: "ex: https://www.youtube.com/watch?v=Ap31wUxF_m8", class: "col-sm-5" %>
+  </div>
+  <br>
+  <%= f.submit "Submit", class: "btn btn-primary col-sm-2 col-sm-offset-5" %>
+<% end %>

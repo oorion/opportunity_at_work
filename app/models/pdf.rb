@@ -5,8 +5,12 @@ class Pdf < ActiveRecord::Base
 
   validates_attachment_content_type :pdf_file,
                                     :content_type => [ 'application/pdf' ],
-                                    :message => "only pdf files are allowed",
+                                    :message => "Only pdf files are allowed.",
                                     :if => :pdf_attached?
+
+  validates :pdf_file_file_name, uniqueness: {
+                                message: "You already uploaded a pdf with this name."
+                                }
 
   def self.learn_more
     where("slot = 1").first
