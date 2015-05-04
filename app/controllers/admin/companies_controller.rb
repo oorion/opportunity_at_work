@@ -2,7 +2,7 @@ class Admin::CompaniesController < ApplicationController
   before_action :authorize!
 
   def index
-    @companies = Company.paginate(:page => params[:page])
+    @companies = Company.paginate(:page => params[:page], :per_page => 15)
   end
 
   def show
@@ -33,7 +33,13 @@ class Admin::CompaniesController < ApplicationController
   private
 
   def update_params
-    params.require(:company).permit(:name, :organization, :title,
-                                 :email, :state, :city, :hire_count)
+    params.require(:company).permit(:name,
+                                    :organization,
+                                    :title,
+                                    :email,
+                                    :state,
+                                    :city,
+                                    :hire_count
+                                    )
   end
 end
