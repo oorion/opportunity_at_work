@@ -7,4 +7,8 @@ class Admin::DashboardController < ApplicationController
                                               ).uncontacted
                                                .order("updated_at asc")
   end
+
+  def cms_instructions
+    
+  end
 end

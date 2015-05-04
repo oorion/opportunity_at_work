@@ -112,3 +112,46 @@ body {
   width: 270px;
   margin-left: 0;
 }
+
+.cms-instructions-header {
+  padding-left: 35px;
+  padding-bottom: 20px;
+  // color: #147BD5;
+  margin-left: 100px;
+}
+
+.cms-instructions {
+  margin-left: 100px;
+  margin-right: 100px;
+}
+.cms-instructions ul {
+  font-size: 20px;
+}
+
+.navigate-cms a h3{
+  width: 1010px;
+  padding-left: 20px;
+  padding-right: 20px;
+  text-align: left;
+}
+
+.add-content a h3 {
+  width: 1010px;
+  padding-left: 26px;
+  padding-right: 26px;
+  text-align: left;
+}
+
+.manage-content a h3 {
+  width: 1010px;
+  padding-left: 4px;
+  padding-right: 4px;
+  text-align: left;
+}
+
+.preview-site-changes a h3 {
+  width: 1010px;
+  padding-left: 1px;
+  padding-right: 1px;
+  text-align: left;
+}
