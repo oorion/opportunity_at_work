@@ -210,6 +210,7 @@ class Seed
       i = i + 1
     end
   end
+
   # Pdfs
   def build_pdfs
     pdf = Pdf.create(slot: 1)
@@ -223,13 +224,16 @@ class Seed
     Company.first.users << user1
   end
 
-
   def build_content
     3.times do |x|
       Content.create(title: "Some descriptive title",
                       body: "Body of text",
                       page: "learn more",
                       slot: x + 1)
+    end
+
+    20.times do
+      Content.create(title:Faker::Lorem::sentence(3), body: Faker::Lorem.sentence(3))
     end
   end
 end

@@ -39,4 +39,5 @@ group :development, :test do
   gem 'mocha',              '~> 1.1.0'
   gem 'assert_difference'
   gem 'selenium-webdriver'
+  gem 'faker'
 end

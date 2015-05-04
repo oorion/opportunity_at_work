@@ -13,3 +13,27 @@
   <br>
   <%= f.submit "Submit", class: "btn btn-primary col-sm-2 col-sm-offset-5" %>
 <% end %>
+
+<div class="row">
+  <table class="table table-condensed">
+    <thead>
+    <tr class="warning">
+      <th data-field='Title'>Title</th>
+      <th data-field='Url'>Url</th>
+      <th data-field='Updated_at'>Last Updated</th>
+      <th data-field="Delete">Edit/Delete</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @videos.each do |video| %>
+      <tr id="table-row" data-title= "<%= video.id %>">
+        <td><%= video.title %></td>
+        <td><%= video.url %></td>
+        <td><%= distance_of_time_in_words(video.updated_at, Time.now)%> ago</td>
+        <td> <%= link_to "Delete", admin_pdf_path(video), method: :destroy, class: "btn btn-primary" %> </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
