@@ -16,4 +16,10 @@ class ApplicationController < ActionController::Base
       redirect_to root_path
     end
   end
+
+  def authorize_company!
+    unless (current_user && (current_user.admin? || current_user.company.id.to_s == params[:id]))
+      redirect_to root_path
+    end
+  end
 end

@@ -1,22 +1,12 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any styles
- * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
- * file per style scope.
- *
- *= require_self
- *= require_tree .
- */
-
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700);
+@import "custom.scss";
+@import "flash.scss";
+@import "layout.scss";
+@import "map.scss";
+@import "static.scss";
+@import "youtube.scss";
 
 body {
   font-family: 'Open Sans', 'sans-serif';
@@ -127,4 +117,47 @@ body {
 .well-header {
   width: 270px;
   margin-left: 0;
+}
+
+.cms-instructions-header {
+  padding-left: 35px;
+  padding-bottom: 20px;
+  // color: #147BD5;
+  margin-left: 100px;
+}
+
+.cms-instructions {
+  margin-left: 100px;
+  margin-right: 100px;
+}
+.cms-instructions ul {
+  font-size: 20px;
+}
+
+.navigate-cms a h3{
+  width: 1010px;
+  padding-left: 20px;
+  padding-right: 20px;
+  text-align: left;
+}
+
+.add-content a h3 {
+  width: 1010px;
+  padding-left: 26px;
+  padding-right: 26px;
+  text-align: left;
+}
+
+.manage-content a h3 {
+  width: 1010px;
+  padding-left: 4px;
+  padding-right: 4px;
+  text-align: left;
+}
+
+.preview-site-changes a h3 {
+  width: 1010px;
+  padding-left: 1px;
+  padding-right: 1px;
+  text-align: left;
 }

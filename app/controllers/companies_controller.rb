@@ -1,4 +1,6 @@
 class CompaniesController < ApplicationController
+  before_action :authorize_company!, only: [:show]
+
   def new
     @company = Company.new
   end

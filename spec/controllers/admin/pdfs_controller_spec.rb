@@ -15,4 +15,13 @@ RSpec.describe Admin::PdfsController, type: :controller do
 
     expect(response).to redirect_to("/admin/pdfs")
   end
+
+  it "can delete a pdf" do
+    pdf_file = Rack::Test::UploadedFile.new('spec/fixtures/sample_pdf.pdf', 'application/pdf')
+    pdf = Pdf.create(slot: 98, pdf_file: pdf_file)
+    delete :destroy, {id: pdf.id}
+    expect(response).to redirect_to("/admin/pdfs")
+    expect(Pdf.count).to eq(0)
+  end
+
 end

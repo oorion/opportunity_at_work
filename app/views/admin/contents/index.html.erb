@@ -22,6 +22,7 @@
     <tr class="warning">
       <th data-field='title'>Title</th>
       <th data-field='body'>Body</th>
+      <th data-field="Updated-time"> Updated Time</th>
       <th data-field="Edit/Delete">Edit/Delete</th>
     </tr>
     </thead>
@@ -31,6 +32,7 @@
       <tr id="table-row" data-title= "<%= content.title %>">
         <td><%= content.title %></td>
         <td><%= truncate(content.body, length: 17, separator: ' ') %></td>
+        <td><%= distance_of_time_in_words(content.updated_at, Time.now)%> ago</td>
         <td> <%= link_to "Edit", edit_admin_content_path(content), class: "btn btn-primary" %>
           <%= link_to "Delete", admin_content_path(content), method: :destroy, class: "btn btn-primary" %> </td>
       </tr>
