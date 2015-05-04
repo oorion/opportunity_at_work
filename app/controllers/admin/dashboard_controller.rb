@@ -9,6 +9,19 @@ class Admin::DashboardController < ApplicationController
   end
 
   def cms_instructions
-    
+  end
+
+  def new_admin
+    @user = User.new
+  end
+
+  def create_admin
+    binding.pry
+  end
+
+  private
+
+  def admin_params
+    params.require(:user).permit(:email)
   end
 end

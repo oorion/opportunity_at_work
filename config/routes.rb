@@ -12,6 +12,8 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :dashboard, only: [:index]
+    get "/dashboard/new-admin", to: "dashboard#new_admin"
+    post "/dashboard/create-admin", to: "dashboard#create_admin"
     get "/dashboard/cms-instructions", to: "dashboard#cms_instructions", as: "cms_instructions"
     resources :contents
     resources :videos

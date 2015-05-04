@@ -215,5 +215,20 @@ RSpec.feature "AdminDashboard", type: :feature do
       end
       expect(current_path).to eq(techhire_locations_path)
     end
+
+    it "allows an admin to create another admin" do
+      login
+
+      click_link_or_button('Add New Admin')
+      within('.new-admin') do
+        fill_in('user[email]', with: 'admin2@example.com')
+      end
+      click_link_or_button('Create Admin')
+
+      expect(current_path).to eq(admin_dashboard_index_path)
+      expect(User.last.email).to eq('admin2@example.com')
+      expect(User.last.password).to_not eq(nil)
+      expect(User.last.role).to eq('admin')
+    end
   end
 end

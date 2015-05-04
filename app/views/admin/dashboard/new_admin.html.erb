@@ -1,0 +1,6 @@
+<div class="new-admin">
+  <%= form_for @user, url: admin_dashboard_create_admin_path do |f| %>
+    <%= f.email_field :email %>
+    <%= f.submit "Create Admin" %>
+  <% end %>
+</div>
