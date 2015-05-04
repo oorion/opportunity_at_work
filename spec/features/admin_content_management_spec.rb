@@ -8,8 +8,12 @@ RSpec.feature "AdminContentManagement", type: :feature do
     click_button "Submit"
 
     expect(page).to have_content("Content successfully created.")
+    within(".table") do
+      expect(page).to have_selector("#table-row", count:1)
+      expect(page).to have_content("This is a 10+ char descriptive title")
+      expect(page).to have_content("My body is ready.")
+    end
     expect(current_path).to eql(admin_contents_path)
-    expect(page).to have_selector("#table-row", count:1)
   end
 
   it "should not be able to add content with title under 10 char" do

@@ -7,6 +7,10 @@ RSpec.feature "AdminPdfManagements", type: :feature do
     click_button "Submit"
 
     expect(page).to have_content("Pdf successfully uploaded")
+    within(".table") do
+      expect(page).to have_css("#table-row", text: "sample_pdf.pdf")
+      expect(page).to have_selector("tr", count: 2, visible: true)
+    end
     expect(current_path).to eql(admin_pdfs_path)
   end
 

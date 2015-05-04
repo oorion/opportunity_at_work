@@ -1,4 +1,4 @@
-<h1>Upload a new video</h1>
+<h1 class="text-center">Upload a new video</h1>
 <br>
 <%= form_for(:video, url:admin_videos_path, html: { class: "form-horizontal"} ) do |f| %>
 <div class="form-group">
@@ -13,3 +13,31 @@
   <br>
   <%= f.submit "Submit", class: "btn btn-primary col-sm-2 col-sm-offset-5" %>
 <% end %>
+
+<div class="row table-index">
+  <h3 class="text-center"><u>All Videos</u></h3>
+  <label for="search_table"><strong>All Table Columns are Searchable by Keyword</strong></label><br>
+  <input type="text" id="search_table" placeholder="keyword">
+  <table class="table table-condensed">
+    <thead>
+    <tr class="warning">
+      <th data-field='title'>Title</th>
+      <th data-field='url'>Url</th>
+      <th data-field='updated_at'>Last Updated</th>
+      <th data-field="Edit/Delete">Edit/Delete</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @videos.each do |video| %>
+      <tr id="table-row" data-title= "<%= video.id %>">
+        <td><%= video.title %></td>
+        <td><%= video.url %></td>
+        <td><%= updated_at_time(video) %></td>
+        <td> <%= link_to "Edit", edit_admin_pdf_path(video), class: "btn btn-primary" %>
+          <%= link_to "Delete", admin_pdf_path(video), method: :destroy, class: "btn btn-primary" %> </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>

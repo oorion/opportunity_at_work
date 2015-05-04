@@ -19,10 +19,10 @@
 # Ignore notes
 /notes.md
 
-# Ignore application configuration
+# Ignore node stuff
+npm-debug.log
 
 # Ignore simplecov coverage
 coverage
 
 # Ignore application configuration
-/config/application.yml

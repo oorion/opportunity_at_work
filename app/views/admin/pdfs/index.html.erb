@@ -1,15 +1,12 @@
-<h1>This is where you can upload pdfs</h1>
-
-<%= form_for :pdf, url: admin_pdfs_path, :html => { :multipart => true } do |f| %>
-    <%= f.label :pdf, "Upload PDF" %>
-    <%= f.file_field :pdf_file %> <br>
-    <%= f.submit "Submit" %>
-<% end %><br>
-
-<div class="container">
-  <h1 >Pdfs</h1>
-  <div class="row">
-    <div class="panel-heading">
+<div class="row">
+  <h1 class="text-center">This is where you can upload pdfs</h1>
+  <br>
+  <%= form_for :pdf, url: admin_pdfs_path, :html => { :multipart => true , class: "form-horizontal" } do |f| %>
+    <div class="form-group">
+      <%= f.label :pdf_file, "Upload PDF", class:"col-sm-2 control-group lead" %>
+      <%= f.file_field :pdf_file %>
+      <br>
+      <%= f.submit "Submit", class: "btn btn-primary col-sm-1" %>
     </div>
       <table class="table">
         <thead>
@@ -36,4 +33,32 @@
       </tbody>
     </table>
   </div>
+</div>
+
+<div class="row table-index">
+  <h3 class="text-center"><u>All PDFs</u></h3>
+
+  <label for="search_table"><strong>All Table Columns are Searchable by Keyword</strong></label><br>
+  <input type="text" id="search_table" placeholder="keyword">
+
+  <table class="table table-condensed">
+    <thead>
+    <tr class="warning">
+      <th data-field='title'>Title</th>
+      <th data-field='updated_at'>Last Updated</th>
+      <th data-field="Edit/Delete">Edit/Delete</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @pdfs.each do |pdf| %>
+      <tr id="table-row" data-title= "<%= pdf.id %>">
+        <td><%= pdf.pdf_file_file_name %></td>
+        <td><%= updated_at_time(pdf) %></td>
+        <td> <%= link_to "Edit", edit_admin_pdf_path(pdf), class: "btn btn-primary" %>
+          <%= link_to "Delete", admin_pdf_path(pdf), method: :destroy, class: "btn btn-primary" %> </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
 </div>
