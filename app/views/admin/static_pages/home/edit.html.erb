@@ -1,0 +1,36 @@
+<div style="width: 100%;">
+   <div class="left-half form-horizontal">
+     <div class="form-group">
+        <%= form_for(:learn_more, url: admin_static_pages_home_path, method: :patch, html: { class: "col-sm-3" }) do |f| %>
+          <%= f.label :contents, class: "control-label" %>
+          <%= f.collection_select :contents, Content.all, :id, :title, { include_blank: "Content" }, { class: "form-control" }%>
+        <% end %>
+     </div>
+      <br>
+      <div class="form-group">
+        <%= form_for(:learn_more, url: admin_static_pages_home_path, method: :patch, html: { class: "col-sm-3" }) do |f| %>
+          <%= f.label :contents, class: "control-label" %>
+          <%= f.collection_select :contents, Content.all, :id, :title, { include_blank: "Content" }, { class: "form-control" }%>
+        <% end %>
+      </div>
+      <br>
+      <div class="form-group">
+        <%= form_for(:learn_more, url: admin_static_pages_home_path, method: :patch, html: { class: "col-sm-3" }) do |f| %>
+          <%= f.label :contents, class: "control-label" %>
+          <%= f.collection_select :contents, Content.all, :id, :title, { include_blank: "Content" }, { class: "form-control" }%>
+        <% end %>
+      </div>
+      <br>
+      <div class="form-group">
+        <%= form_for(:learn_more, url: admin_static_pages_home_path, method: :patch, html: { class: "col-sm-3" }) do |f| %>
+          <%= f.label :contents, class: "control-label" %>
+          <%= f.collection_select :contents, Content.all, :id, :title, { include_blank: "Content" }, { class: "form-control" }%>
+        <% end %>
+      </div>
+      <br>
+   </div>
+   <div class="right-half">
+     right side
+   </div>
+</div>
+<div style="clear:both"></div>

@@ -1,38 +1,15 @@
 <div class="row">
-  <h1 class="text-center">This is where you can upload pdfs</h1>
-  <br>
   <%= form_for :pdf, url: admin_pdfs_path, :html => { :multipart => true , class: "form-horizontal" } do |f| %>
+    <h1 class="text-center">This is where you can upload pdfs</h1>
+    <br>
+
     <div class="form-group">
       <%= f.label :pdf_file, "Upload PDF", class:"col-sm-2 control-group lead" %>
       <%= f.file_field :pdf_file %>
       <br>
       <%= f.submit "Submit", class: "btn btn-primary col-sm-1" %>
     </div>
-      <table class="table">
-        <thead>
-          <tr class="filters">
-            <th><input type="text" class="form-control" placeholder="ID" disabled></th>
-            <th><input type="text" id="pdf_file_name" class="form-control" placeholder="Name"></th>
-            <th><input type="text" class="form-control" placeholder="Current Position" disabled></th>
-            <th><input type="text" class="form-control" placeholder="Last Updated" disabled></th>
-            <th><input type="submit" class="btn btn-default filter" id="filter-pdfs" value="Filter"></th>
-          </tr>
-        </thead>
-      <tbody class="all-pdfs">
-        <% @pdfs.each do |pdf| %>
-          <tr class="PDFs">
-            <td class="id"><%= pdf.id %></td>
-            <td class="name"><%= pdf.pdf_file_file_name %></td>
-            <td class="current-position"><%= pdf.slot %></td>
-            <td class="contact-title"><%= distance_of_time_in_words(pdf.updated_at, Time.now) %></td>
-            <td>
-              <%= link_to "Delete", admin_pdf_path(pdf.id), :method => "Delete", class: "btn btn-default" %>
-            </td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-  </div>
+  <% end %>
 </div>
 
 <div class="row table-index">
