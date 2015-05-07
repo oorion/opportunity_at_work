@@ -10,6 +10,7 @@ class Company < ActiveRecord::Base
   validates :hire_count, numericality: { only_integer: true, }
 
   after_create :create_new_user
+  before_save :verify_hire_count
 
   scope :contacted, -> { where status: "contacted"}
   scope :uncontacted, -> { where status: "uncontacted"}
@@ -46,5 +47,9 @@ class Company < ActiveRecord::Base
 
   def email_new_user(user, password)
     UserEmailer.send_welcome_email(user, password).deliver_now
+  end
+
+  def verify_hire_count
+    hire_count = 0 if hire_count == ""
   end
 end

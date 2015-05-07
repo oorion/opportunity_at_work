@@ -1,0 +1,56 @@
+<div class="mod-heading check">
+  <h1>Sign Up</h1>
+</div>
+
+<div class="layout-wrap">
+  <%= form_for @company, url: companies_path do |f| %>
+    <p class="intro">
+      Whether you’re an employer, hiring manager, or community leader, all we need is an interest from you in learning more about TechHire, and a passion to find and hire talented employees in your community who are ready to work.
+    </p>
+
+    <div class="row">
+      <%= f.label(:name, "Name (First and Last)") %>
+      <%= f.text_field :name, required: true %>
+    </div>
+
+    <div class="row">
+      <%= f.label(:organization, "Organization") %>
+      <%= f.text_field :organization, required: true  %>
+    </div>
+
+    <div class="row">
+      <%= f.label(:title, "Title") %>
+      <%= f.text_field :title, required: true  %>
+    </div>
+
+    <div class="row cols-25-75">
+      <div class="col">
+        <%= f.label(:state, "State") %>
+        <%= f.select :state, options_for_select(state_helper, @company.state) %>
+      </div>
+
+      <div class="col">
+        <%= f.label(:city, "City") %>
+        <% cache @cities do %>
+        <%= f.grouped_collection_select :city, State.all, :usa_cities, :abbr, :name, :name %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="row">
+      <%= f.label(:email, "Email") %>
+      <%= f.text_field :email, type: 'email', required: true  %>
+    </div>
+
+    <div class="row commit">
+      <%= f.check_box :hiring %>
+      I am ready to commit to hiring
+      <%= f.text_field :hire_count %>
+      people through TechHire
+    </div>
+
+    <div class="row button-center">
+      <%= f.submit "Create TechHire account", class: 'button' %>
+    </div>
+  <% end %>
+</div>

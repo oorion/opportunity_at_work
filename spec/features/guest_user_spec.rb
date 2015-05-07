@@ -45,18 +45,13 @@ RSpec.feature "Company Signup Page", type: :feature do
 
     it "can see a form on the signup page" do
       visit ('/signup')
-      within(".signup_form") do
-        expect(page).to have_content("Start hiring")
-        within("#new_company") do
-          expect(page).to have_content("Name (First and Last)")
-          expect(page).to have_content("Organization")
-          expect(page).to have_content("Title")
-          expect(page).to have_content("State")
-          expect(page).to have_content("City")
-          expect(page).to have_content("Email")
-          find_button("Create techHire account")
-        end
-      end
+      expect(page).to have_content("Name (First and Last)")
+      expect(page).to have_content("Organization")
+      expect(page).to have_content("Title")
+      expect(page).to have_content("State")
+      expect(page).to have_content("City")
+      expect(page).to have_content("Email")
+      find_button("Create TechHire account")
     end
 
     it "can signup their company using the signup form" do
@@ -70,7 +65,7 @@ RSpec.feature "Company Signup Page", type: :feature do
         fill_in 'company[email]', with: "google@email.com"
         check 'company[hiring]'
         fill_in 'company[hire_count]', with: 5
-        click_button('Create techHire account')
+        click_button('Create TechHire account')
       end
 
       expect(current_path).to eq(companies_welcome_path)
@@ -89,7 +84,7 @@ RSpec.feature "Company Signup Page", type: :feature do
         fill_in 'company[email]', with: "goog"
         check 'company[hiring]'
         fill_in 'company[hire_count]', with: 5
-        click_button('Create techHire account')
+        click_button('Create TechHire account')
       end
       expect(current_path).to eq(companies_path)
 
