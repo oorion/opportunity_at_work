@@ -1,75 +1,58 @@
-<h1> Tools/Resources </h1>
-<div class="playbook col-md-6">
-  <h3>TechHire Playbook</h3>
-  <p>
-    How can you find non-traditional channels to gain a competitive
-    talent edge? What steps should you be taking to find employees
-    to fit your needs? How can TechHire help you fill open tech positions?
-  </p>
-  <p>
-    Watch the short video and download the playbook to get started today.
-  </p>
-  <%= link_to 'Download Pdf', pdf_path(@pdf), class: "button" %>
+<div class="mod-heading tools">
+  <h1>Tools/Resources</h1>
 </div>
-<div class="video-1 embed-container col-md-6">
-  <%= YoutubeHelper.embed("https://www.youtube.com/watch?v=ZzQ3eBerHfM") %>
-</div>
-<div class="case-studies">
-  <div class="business-case col-md-12">
-    <h3>The Case for Businesses</h3>
-    <p>
-      Meaningful work is essential to human flourishing and to America’s
-      promise of upward mobility and civic equality, while tapping the
-      full talents of our people is essential for productive and inclusive
-      economic growth. The gradual erosion of such work for many in the US
-      economy over the past 30 years threatens both America’s promise and
-      economic vitality.
-    </p>
-    <p>
-      On average, business lose $434 each day that they leave in-demand
-      tech positions unfilled. By partnering with TechHire, you’ll be able
-      to find and employ people who are ready to work, and in your community.
-    </p>
-  </div>
-  <div class="mastercard-case col-md-6">
-    <h3>MasterCard Case Study</h3>
-    <p>
-      Mastercard began working with LaunchCode in the spring of 2014.
-      Mastercard started with one apprentice developer. That developer
-      got a job coming out of their apprenticeship. Growing out of the
-      successful apprenticeship, Mastercard decided to start a larger
-      pilot in the fall of 2014. At this time they took 3 additional
-      apprentices in software engineering, project management, and
-      development. One of these apprentices was LaShana Lewis, whose
-      story of grit and hard work was later highlighted by President Obama.
-    </p>
-    <button name="playbook">Download the MasterCard Case Study</button>
-  </div>
-  <div class="saic-case col-md-6">
-    <h3>SAIC Case Study</h3>
-    <p>
-      SAIC approached LaunchCode to help fill their talent needs.
-      So far, it has been a great success. They have hired and converted
-      three LaunchCode apprentices in the past year, including Lee
-      Wissmiller, a US Marine veteran, who was diagnosed with narcolepsy
-      ten years ago. Lee is a skilled programmer, but due to his
-      disability, was unable to find a permanent job despite attending
-      285 job interviews. After discovering LaunchCode, Lee was placed
-      at SAIC where he successfully transitioned to a full-time position
-      as a software developer. See SAIC and Lee’s story here.
-    </p>
-    <button name="playbook">Download the SAIC Case Study</button>
+
+<div class="mod-content two-columns">
+  <div class="layout-wrap">
+    <div class="col icon-playbook">
+      <h2>TechHire Playbook</h2>
+      <p>How can you find non-traditional channels to gain a competitive talent edge? What steps should you be taking to find employees to fit your needs? How can TechHire help you fill open tech positions?</p>
+      <p>Watch the short video and download the playbook to get started today.</p>
+      <p><a class="button" href="#">Download the Playbook</a></p>
+    </div>
+
+    <div class="col">
+      <div clas="embed-container">
+        <iframe frameborder="0" src="https://www.youtube-nocookie.com/embed/3iiXLXo2hic?rel=0&amp;showinfo=0"></iframe>
+      </div>
+    </div>
   </div>
 </div>
-<div class="fact-sheet col-md-6">
-  <h3>Fact Sheet</h3>
-  <p>
-    On March 9, 2015, President Obama announced the creation of the
-    TechHire initiative -- a new campaign to work with communities to
-    get more Americans rapidly trained for well-paying technology jobs.
-  </p>
-  <button name="playbook">Download the Factsheet</button>
+
+<div class="mod-content yellow">
+  <div class="layout-wrap icon-check">
+    <h2>The Case for Businesses</h2>
+    <p>Meaningful work is essential to human flourishing and to America’s promise of upward mobility and civic equality, while tapping the full talents of our people is essential for productive and inclusive economic growth. The gradual erosion of such work for many in the US economy over the past 30 years threatens both America’s promise and economic vitality.</p>
+    <p>On average, business lose $434 each day that they leave in-demand tech positions unfilled. By partnering with TechHire, you’ll be able to find and employ people who are ready to work, and in your community.</p>
+
+    <div class="two-columns">
+      <div class="col icon-case">
+        <h2>MasterCard Case Study</h2>
+        <p>Mastercard began working with LaunchCode in the spring of 2014. Mastercard started with one apprentice developer. That developer got a job coming out of their apprenticeship. Growing out of the successful apprenticeship, Mastercard decided to start a larger pilot in the fall of 2014. At this time they took 3 additional apprentices in software engineering, project management, and development. One of these apprentices was LaShana Lewis, whose story of grit and hard work was later highlighted by President Obama.</p>
+        <p><a href="#" class="button">Download the MasterCard Case Study</a></p>
+      </div>
+
+      <div class="col icon-case">
+        <h2>SAIC Case Study</h2>
+        <p>SAIC approached LaunchCode to help fill their talent needs. So far, it has been a great success. They have hired and converted three LaunchCode apprentices in the past year, including Lee Wissmiller, a US Marine veteran, who was diagnosed with narcolepsy ten years ago. Lee is a skilled programmer, but due to his disability, was unable to find a permanent job despite attending 285 job interviews. After discovering LaunchCode, Lee was placed at SAIC where he successfully transitioned to a full-time position as a software developer. <a href="#">See SAIC and Lee’s story here.</a></p>
+        <p><a class="button" href="#">Download the SAIC Case Study</a></p>
+      </div>
+    </div>
+  </div>
 </div>
-<div class="video-2 embed-container col-md-6">
-  <%= YoutubeHelper.embed("https://www.youtube.com/watch?v=ZzQ3eBerHfM") %>
+
+<div class="mod-content two-columns">
+  <div class="layout-wrap">
+    <div class="col icon-sheet">
+      <h2>Fact Sheet</h2>
+      <p>On March 9, 2015, President Obama announced the creation of the TechHire initiative — a new campaign to work with communities to get more Americans rapidly trained for well-paying technology jobs.</p>
+      <p><a href="#" class="button">Download the Factsheet</a></p>
+    </div>
+
+    <div class="col">
+      <div clas="embed-container">
+        <iframe frameborder="0" src="https://www.youtube-nocookie.com/embed/3iiXLXo2hic?rel=0&amp;showinfo=0"></iframe>
+      </div>
+    </div>
+  </div>
 </div>

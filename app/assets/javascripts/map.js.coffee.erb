@@ -1,0 +1,72 @@
+# Location of the JSON file containing all locations to be mapped
+locations_source = '/assets/data/locations.json'
+
+# Set up variables
+location_url_base = '/location'
+map = null
+locations_list = null
+
+# Fetch JSON data and send it to the create_map function
+$(document).ready ->
+  map = $('.mod-map .map')
+  locations_list = $('.mod-map .locations ul')
+
+  $.getJSON(locations_source, (data) =>
+    create_map data
+  )
+
+# Add locations to the map
+create_map = (data) ->
+  $.each(data, (idx, location) =>
+    create_marker location
+    create_label location
+  )
+
+# Create a map marker for a location
+create_marker = (location) ->
+  marker = $("<a href='#{location_url(location.slug)}' class='marker' data-map-marker-slug='#{location.slug}'>#{location.location}</a>")
+  position =
+    "left": "#{location.map_position[0]}px"
+    "top": "#{location.map_position[1]}px"
+  marker.css position
+  marker.hover(
+    (e) -> highlight_location location.slug, true
+    (e) -> highlight_location location.slug, false
+  )
+  marker.appendTo map
+
+# Create a label for a location
+create_label = (location) ->
+  label = $("<a href='#{location_url(location.slug)}' data-map-label-slug='#{location.slug}'>#{location.location}</a>")
+  label.hover(
+    (e) -> highlight_location location.slug, true
+    (e) -> highlight_location location.slug, false
+  )
+  label.appendTo $('<li></li>').appendTo(locations_list)
+
+# Highlights marker & label when hovering over a marker or label
+highlight_location = (slug, active) ->
+  marker = $("[data-map-marker-slug='#{slug}']")
+  label = $("[data-map-label-slug='#{slug}']")
+
+  if active
+    marker.addClass 'highlight'
+    label.addClass 'highlight'
+  else
+    marker.removeClass 'highlight'
+    label.removeClass 'highlight'
+
+# Construct a location url
+location_url = (slug) ->
+  "#{location_url_base}/#{slug}"
+
+# Alert x,y coordinates on click when the "data-debug" attribute is set
+init_debug = ->
+  if map.is('[data-debug]')
+    offset = map.offset()
+
+    map.click (e) ->
+      relX = e.pageX - offset.left;
+      relY = e.pageY - offset.top;
+      console.log "X/Y: #{relX.toFixed()}, #{relY.toFixed()}"
+

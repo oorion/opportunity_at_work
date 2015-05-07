@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.feature "AdminLogins", type: :feature do
   describe("Admin") do
     let(:admin) do
-      User.create(email: 'admin@example.com', password: 'password', role: 1)
+      User.create(email: 'admin1@example.com', password: 'password', role: 1)
     end
 
     it "allows admin to login" do
@@ -72,24 +72,28 @@ RSpec.feature "AdminLogins", type: :feature do
   end
 
   describe("Normal User") do
-    let(:company) { create(:company) }
-    let(:user) { User.create(email: 'user@example.com', password: 'password', company_id: company.id) }
+    attr_reader :company
+
+    before(:each) do
+      allow(User).to receive(:generate_password).and_return("password")
+      @company = create(:company, email: 'user@example.com')
+    end
 
     it "doesn't allow non-admin users to route to admin/dashboard on login" do
       visit new_user_session_path
 
-      fill_in 'user[email]', with: user.email
-      fill_in 'user[password]', with: user.password
+      fill_in 'user[email]', with: company.users.first.email
+      fill_in 'user[password]', with: "password"
       click_link_or_button('Log in')
 
-      expect(current_path).to eq(company_path(user.company.id))
+      expect(current_path).to eq(company_path(company.id))
     end
 
     it "doesn't allow non-admin users to login and view admin/dashboard" do
       visit new_user_session_path
 
-      fill_in 'user[email]', with: user.email
-      fill_in 'user[password]', with: user.password
+      fill_in 'user[email]', with: company.users.first.email
+      fill_in 'user[password]', with: "password"
       click_link_or_button('Log in')
       visit admin_dashboard_index_path
 
@@ -99,8 +103,8 @@ RSpec.feature "AdminLogins", type: :feature do
     it "doesn't allow non-admin users to login and view admin/companies" do
       visit new_user_session_path
 
-      fill_in 'user[email]', with: user.email
-      fill_in 'user[password]', with: user.password
+      fill_in 'user[email]', with: company.users.first.email
+      fill_in 'user[password]', with: "password"
       click_link_or_button('Log in')
       visit admin_companies_path
 
@@ -108,11 +112,10 @@ RSpec.feature "AdminLogins", type: :feature do
     end
 
     it "doesn't allow non-admin users to login and view admin/companies/:id" do
-      company = create(:company)
       visit new_user_session_path
 
-      fill_in 'user[email]', with: user.email
-      fill_in 'user[password]', with: user.password
+      fill_in 'user[email]', with: company.users.first.email
+      fill_in 'user[password]', with: "password"
       click_link_or_button('Log in')
       visit admin_company_path(company.id)
 

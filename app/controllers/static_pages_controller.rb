@@ -1,4 +1,6 @@
 class StaticPagesController < ApplicationController
+  layout "static_application"
+
   def home
   end
 
@@ -6,7 +8,7 @@ class StaticPagesController < ApplicationController
   end
 
   def tools_resources
-    @pdf = Pdf.learn_more
+    @pdf_learn_more = Pdf.learn_more
   end
 
   def techhire_locations

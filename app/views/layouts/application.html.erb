@@ -3,7 +3,7 @@
 <head>
   <title>OpportunityAtWork</title>
   <script src='http://code.jquery.com/jquery-2.1.1.min.js'></script>
-  <script src="http://d3js.org/d3.v3.min.js"></script>
+  <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
   <script src="http://d3js.org/topojson.v1.min.js"></script>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
 </head>
 <body>
+  <div class="container">
   <% if current_user && current_user.admin? %>
     <%= render 'navbar' %>
   <% end %>

@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get "/techhire-locations", to: "static_pages#techhire_locations", as: "techhire_locations"
   get "/download", to: "static_pages#download", as: "download"
   get "/companies/welcome", to: "companies#welcome"
-  get 'signup', to: "companies#new"
+  get 'signup', to: "companies#new", as: :signup
 
   namespace :admin do
     resources :dashboard, only: [:index]

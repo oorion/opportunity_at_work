@@ -1,0 +1,87 @@
+.mod-map {
+  @extend %clearfix;
+
+  .map {
+    width: 551px;
+    height: 265px;
+    position: relative;
+    float: left;
+    background: image-url("bg_map.png");
+    background-size: 100%;
+
+    .marker {
+      width: 16px;
+      height: 21px;
+      display: block;
+      position: absolute;
+      overflow: hidden;
+      margin: -21px 0 0 -8px;
+      text-indent: -9999px;
+      background: image-url("i_marker.png") no-repeat;
+      background-size: 100% auto;
+      transition: width .2s, height .2s, margin .2s;
+
+      &.highlight {
+        width: 24px;
+        height: 32px;
+        margin: -32px 0 0 -12px;
+      }
+    }
+  }
+
+  .locations {
+    width: 330px;
+    float: right;
+
+    ul {
+      margin-bottom: 14px;
+    }
+
+    li {
+      display: inline-block;
+      margin: 0 8px 8px 0;
+    }
+
+    a {
+      display: inline-block;
+      padding: 6px;
+      font-size: 11px;
+      text-decoration: none;
+      color: #fff;
+      background: #aa8f5e;
+      border-radius: 3px;
+
+      &.highlight {
+        background: darken(#aa8f5e, 20%);
+      }
+    }
+
+    p {
+      margin: 0;
+    }
+  }
+
+  @include max-width(999px) {
+    .map,
+    .locations {
+      float: none;
+      margin: 0 auto;
+    }
+
+    .map {
+      margin-bottom: 40px;
+    }
+
+    .locations {
+      width: 100%;
+      text-align: center;
+    }
+  }
+
+  @include max-width(630px) {
+    .map {
+      display: none;
+    }
+  }
+
+}

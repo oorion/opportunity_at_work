@@ -19,10 +19,10 @@
 # Ignore notes
 /notes.md
 
-# Ignore application configuration
-
 # Ignore simplecov coverage
 coverage
+
+# Ignore application configuration
 
 # Ignore application configuration
 /config/application.yml

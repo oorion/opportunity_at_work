@@ -1,7 +1,13 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
-
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700);
+@import "custom.scss";
+@import "flash.scss";
+@import "layout.scss";
+@import "map.scss";
+@import "static.scss";
+@import "youtube.scss";
+
 body {
   font-family: 'Open Sans', 'sans-serif';
   background:#f0f0f0;

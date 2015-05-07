@@ -1,0 +1,120 @@
+.mod-content {
+  @extend %clearfix;
+  padding: 30px 0;
+  font-family: $font-family-alt;
+  font-size: 15px;
+  line-height: 1.428571429;
+
+  .layout-wrap {
+    padding-left: 95px;
+  }
+
+  &.yellow {
+    background: $yellow;
+  }
+
+  .two-columns,
+  &.two-columns {
+    @extend %clearfix;
+
+    .col {
+      width: 47.85%;
+      float: left;
+      padding-left: 65px;
+
+      &:last-child {
+        float: right;
+      }
+    }
+  }
+
+  &.two-columns {
+    padding-left: 0;
+
+    .layout-wrap {
+      padding-left: 30px;
+    }
+  }
+
+  .two-columns {
+    margin-left: -65px;
+  }
+
+  h2 {
+    margin-bottom: 20px;
+    font-family: $font-family;
+    font-size: 24px;
+    line-height: 1.2;
+  }
+
+  p {
+    line-height: 1.428571429;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    a {
+      font-weight: 700;
+      text-decoration: none;
+      color: $red;
+
+      @include hocus {
+        text-decoration: underline;
+      }
+    }
+
+    & + .two-columns {
+      margin-top: 50px;
+    }
+  }
+
+  @include min-width(551px) {
+    @each $icon in case, check, playbook, sheet {
+      .icon-#{$icon} {
+        padding-top: 5px;
+        $filename: "i_#{$icon}.png";
+        background-image: image-url($filename);
+        background-size: (image-width($filename) / 2) auto;
+        background-repeat: no-repeat;
+      }
+
+      .layout-wrap.icon-#{$icon} {
+        background-position: 30px top;
+      }
+    }
+  }
+
+  @include max-width(950px)
+  {
+    .two-columns,
+    &.two-columns {
+      .col {
+        width: 100%;
+        float: none;
+
+        &:first-child {
+          margin-bottom: 40px;
+        }
+      }
+    }
+  }
+
+  @include max-width(550px)
+  {
+    .layout-wrap {
+      padding-left: 30px;
+    }
+
+    .two-columns,
+    &.two-columns {
+      .col {
+        padding-left: 0;
+      }
+    }
+
+    .two-columns {
+      margin-left: 0;
+    }
+  }
+}

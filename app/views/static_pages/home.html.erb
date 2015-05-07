@@ -1,21 +1,33 @@
-<h3>￼Connecting businesses, communities and the tech talent pipeline</h3>
+<% content_for :body_class, "main-bg-yellow" %>
 
+<section class="mod-hero">
+  <h1>￼Connecting businesses, communities and the tech talent pipeline</h1>
+  <p class="actions">
+    <%= link_to "Learn more", learn_more_path, class: "button"%>
+    <%= link_to "Sign up", signup_path, class: "button"%>
+  </p>
+</section>
+
+<section class="mod-stories layout-wrap">
+  <div class="story">
+    <h1>How LaShana did it</h1>
+    <div class="embed-container">
+      <iframe frameborder="0" src="https://www.youtube-nocookie.com/embed/3iiXLXo2hic?rel=0&amp;showinfo=0"></iframe>
+    </div>
+    <p><%= link_to "More stories from people who’ve been impacted by TechHire", "#" %></p>
+  </div>
+  <div class="story">
+    <h1>How Kickstarter did it</h1>
+    <div class="embed-container">
+      <iframe frameborder="0" src="https://www.youtube-nocookie.com/embed/3iiXLXo2hic?rel=0&amp;showinfo=0"></iframe>
+    </div>
+    <p><%= link_to "More stories from businesses who’ve been impacted by TechHire", "#" %></p>
+  </div>
+</section>
+
+<!--
 <div class="links col-md-12">
-  <%= link_to "Learn More", learn_more_path %>
-  <%= link_to "Sign Up", signup_path %>
-  <%= link_to "Sign In", new_user_session_path %>
+  <#%= link_to "Sign In", new_user_session_path %>
 </div>
+-->
 
-<div class="heading-1 col-md-6">
-  <h3>How LaShana Did It</h3>
-</div>
-<div class="heading-2 col-md-6">
-  <h3>How kickStater Did It</h3>
-</div>
-
-<div class="video-1 embed-container col-md-6">
-  <%= YoutubeHelper.embed("https://www.youtube.com/watch?v=ZzQ3eBerHfM") %>
-</div>
-<div class="video-2 ember-container col-md-6">
-  <%= YoutubeHelper.embed("https://www.youtube.com/watch?v=ZzQ3eBerHfM") %>
-</div>

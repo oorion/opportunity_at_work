@@ -6,44 +6,47 @@ RSpec.feature "Company Signup Page", type: :feature do
 
     let! (:state) {
       State.create(
-                   abbr: "CO",
-                     id: 14
-                  )
+        abbr: "CO",
+        id: 14
+      )
     }
 
     let! (:usa_city1) {
       UsaCity.create(
-                     name: "Denver",
-                 state_id: 14
-                    )
+        name: "Denver",
+        state_id: 14
+      )
     }
 
     let! (:usa_city2) {
       UsaCity.create(
-                     name: "Boulder",
-                 state_id: 14
-                    )
+        name: "Boulder",
+        state_id: 14
+      )
     }
 
     let! (:usa_city3) {
       UsaCity.create(
-                     name: "Dallas",
-                 state_id: 13
-                    )
+        name: "Dallas",
+        state_id: 13
+      )
     }
 
     it "can see links to signup and learn more on the home page" do
       visit ('/')
-      within(".links") do
-        expect(page).to have_link("Sign Up")
+      within("nav#static-site-nav") do
+        expect(page).to have_link("Home")
         expect(page).to have_link("Learn More")
+        expect(page).to have_link("TechHire Locations")
+        expect(page).to have_link("Sign Up")
+        expect(page).to have_link("Tools/Resources")
       end
     end
 
     it "can see a form on the signup page" do
       visit ('/signup')
       within(".signup_form") do
-          expect(page).to have_content("Start hiring")
+        expect(page).to have_content("Start hiring")
         within("#new_company") do
           expect(page).to have_content("Name (First and Last)")
           expect(page).to have_content("Organization")
@@ -89,7 +92,8 @@ RSpec.feature "Company Signup Page", type: :feature do
         click_button('Create techHire account')
       end
       expect(current_path).to eq(companies_path)
-      expect(page.find('.errors')).to have_content("Please try again!")
+
+      expect(page.find('.flash-error')).to have_content("Please try again!")
     end
 
     it "can see dynamically generated cities" do

@@ -1,0 +1,14 @@
+<header class="mod-header" role="banner">
+  <div class="layout-wrap">
+    <h1><%= link_to "TechHire", root_path %></h1>
+    <nav role="navigation" id="static-site-nav">
+      <ul>
+        <li><%= link_to "Home", root_path, class: action_name == "home" ? "active" : nil %></li>
+        <li><%= link_to "Learn More", learn_more_path, class: action_name == "learn_more" ? "active" : nil %></li>
+        <li><%= link_to "TechHire Locations", techhire_locations_path, class: action_name == "techhire_locations" ? "active" : nil %></li>
+        <li><%= link_to "Sign Up", signup_path, class: action_name == "new" ? "active" : nil %></li>
+        <li><%= link_to "Tools/Resources", tools_resources_path, class: action_name == "tools_resources" ? "active" : nil %></li>
+      </ul>
+    </nav>
+  </div>
+</header>

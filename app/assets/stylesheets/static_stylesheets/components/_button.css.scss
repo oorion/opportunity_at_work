@@ -1,0 +1,31 @@
+.button {
+  display: inline-block !important;
+  padding: 4px 18px !important;
+  font-family: $font-family !important;
+  font-size: $font-size !important;
+  font-weight: $font-weight-normal !important;
+  line-height: 28px !important;
+  text-align: center !important;
+  text-decoration: none !important;
+  color: #fff !important;
+  background: $red !important;
+  border: solid 2px $red !important;
+  border-radius: 20px !important;
+
+  &.small {
+    padding: 0 12px !important;
+    font-size: 12px !important;
+    font-weight: $font-weight-light !important;
+  }
+
+  @include hocus($keyboard-only: true) {
+    border-color: $green !important;
+    box-shadow: 0 0 15px rgba($green, .8) !important;
+  }
+}
+
+.button-center {
+  display: block;
+  margin: 0;
+  text-align: center;
+}

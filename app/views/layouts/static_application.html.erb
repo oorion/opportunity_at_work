@@ -1,0 +1,20 @@
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>TechHire</title>
+    <%= stylesheet_link_tag    'static_application', media: 'all' %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body class="<%= yield (:body_class) %>">
+    <%= render 'layouts/static_header' %>
+    <div class="layout-main">
+      <main role="main">
+        <%= yield %>
+      </main>
+    </div>
+    <%= render 'layouts/static_footer' %>
+    <%= render 'layouts/static_analytics' %>
+    <%= javascript_include_tag 'static_application' %>
+  </body>
+</html>

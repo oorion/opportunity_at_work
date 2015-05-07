@@ -1,0 +1,21 @@
+@mixin max-width($width) {
+  @media (max-width: $width) {
+    @content;
+  }
+}
+
+@mixin min-width($width) {
+  @media (min-width: $width) {
+    @content;
+  }
+}
+
+@mixin hocus($outline: false, $additional-selectors: null, $keyboard-only: false) {
+  $selectors: if($keyboard-only, '&:focus', '&:focus, &:hover, &:focus');
+
+  #{$selectors},
+  #{$additional-selectors} {
+    @content;
+    outline: if($outline, null, none);
+  }
+}

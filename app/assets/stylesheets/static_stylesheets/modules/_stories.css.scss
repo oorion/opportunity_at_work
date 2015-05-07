@@ -1,0 +1,46 @@
+.mod-stories {
+  @extend %clearfix;
+  line-height: 1.2;
+
+  .story {
+    width: 48.1%;
+    float: left;
+
+    &:last-child {
+      float: right;
+    }
+  }
+
+  h1 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: $font-weight-bold;
+    color: $blue;
+  }
+
+  p {
+    margin-top: 10px;
+    font-size: 14px;
+  }
+
+  a {
+    text-decoration: none;
+    color: $red;
+
+    @include hocus {
+      text-decoration: underline;
+    }
+  }
+
+  @include max-width(700px) {
+    .story {
+      width: 100%;
+      float: none;
+      margin-bottom: 30px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}

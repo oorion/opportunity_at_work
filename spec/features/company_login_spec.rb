@@ -2,10 +2,11 @@ require 'rails_helper'
 
 RSpec.feature "Company Login", type: :feature do
   it "should allow a user to sign in and see their associated company profile" do
+    allow(User).to receive(:generate_password).and_return("password")
     company = create(:company)
     visit new_user_session_path
 
-    fill_in 'user[email]', with: company.users.first.email
+    fill_in 'user[email]', with: company.users.last.email
     fill_in 'user[password]', with: 'password'
     click_link_or_button('Log in')
 

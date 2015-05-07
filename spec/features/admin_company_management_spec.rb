@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.feature "AdminCompanyManagement", type: :feature do
   describe("an admin can manage the contact details of a company") do
     let(:admin) do
-      User.create(email: 'admin@example.com', password: 'password', role: 1)
+      User.create(email: 'admin55@example.com', password: 'password', role: 1)
     end
 
     def login
@@ -15,44 +15,44 @@ RSpec.feature "AdminCompanyManagement", type: :feature do
     end
 
     it "can view the details of a company" do
-      companies = create_list(:company, 5, status: "uncontacted")
+      company = create(:company, status: "uncontacted")
       login
       visit admin_companies_path
 
-      click_link(companies.first.organization, match: :first)
+      click_link(company.organization)
 
-      expect(current_path).to eq(admin_company_path(companies.first.id))
+      expect(current_path).to eq(admin_company_path(company.id))
 
-      expect(page).to have_content(companies.first.organization)
-      expect(page).to have_content(companies.first.users.first.name)
-      expect(page).to have_content(companies.first.users.first.title)
-      expect(page).to have_content(companies.first.users.first.email)
-      expect(page).to have_content(companies.first.city)
-      expect(page).to have_content(companies.first.state)
-      expect(page).to have_content(companies.first.status.capitalize)
+      expect(page).to have_content(company.organization)
+      expect(page).to have_content(company.users.first.name)
+      expect(page).to have_content(company.users.first.title)
+      expect(page).to have_content(company.users.first.email)
+      expect(page).to have_content(company.city)
+      expect(page).to have_content(company.state)
+      expect(page).to have_content(company.status.capitalize)
     end
 
     it "can delete a company" do
-      companies = create_list(:company, 5, status: "uncontacted")
+      company = create(:company, status: "uncontacted")
       login
 
       visit '/admin/companies'
 
-      click_link(companies.first.organization, match: :first)
+      click_link(company.organization)
 
       expect(page).to have_button("Delete Company")
 
       click_button("Delete Company")
 
       expect(current_path).to eq(admin_companies_path)
-      expect(Company.count).to eq(4)
+      expect(Company.count).to eq(0)
     end
 
     it "can add notes to a contacted company" do
-      companies = create_list(:company, 5, status: "contacted")
+      company = create(:company, status: "uncontacted")
       login
       click_link_or_button("Companies")
-      first(".Organization").click_link(companies.first.organization)
+      first(".Organization").click_link(company.organization)
       within(".add_note") do
         fill_in "note", with: "test note"
       end
@@ -61,14 +61,14 @@ RSpec.feature "AdminCompanyManagement", type: :feature do
       within(".notes") do
         expect(page).to have_content("test note")
       end
-      expect(current_path).to eq(admin_company_path(companies.first.id))
+      expect(current_path).to eq(admin_company_path(company.id))
     end
 
     it "views all companies on dashboard" do
-      company1 = create(:company, status: "confirmed")
-      company2 = create(:company, status: "contacted")
-      company3 = create(:company, status: "uncontacted")
-      company4 = create(:company, status: "dead")
+      company1 = create(:company, email: "person1@example.com", status: "confirmed")
+      company2 = create(:company, email: "person2@example.com", status: "contacted")
+      company3 = create(:company, email: "person3@example.com", status: "uncontacted")
+      company4 = create(:company, email: "person4@example.com", status: "dead")
       login
 
       visit '/admin/companies'

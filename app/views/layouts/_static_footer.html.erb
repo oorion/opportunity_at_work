@@ -1,0 +1,32 @@
+<footer class="mod-footer" role="contentinfo">
+  <div class="layout-wrap">
+    <div class="about">
+      <address>
+        <b>Opportunity@Work</b>
+        <br>
+        1200 19th St NW (11th Floor)
+        <br>
+        Washington DC 20036
+      </address>
+      <p class="payoff">Opportunity@Work is a civic enterprise whose mission is to re-wire the U.S. labor market to enable more Americans to achieve upward mobility in the job market and workplace.</p>
+    </div>
+    <nav class="sitemap">
+      <ul>
+        <li><%= link_to "Home", root_path %></li>
+        <li><%= link_to "Learn More", learn_more_path %></li>
+        <li><%= link_to "TechHire Locations", techhire_locations_path %></li>
+        <li><%= link_to "Sign Up", signup_path %></li>
+        <li><%= link_to "Tools/Resources", tools_resources_path %></li>
+      </ul>
+    </nav>
+    <div class="contact">
+      <ul class="social">
+        <li><%= link_to 'Facebook', '#', class: 'facebook'%></li>
+        <li><%= link_to 'Twitter', '#', class: 'twitter'%></li>
+        <li><%= link_to 'LinkedIn', '#', class: 'linkedin'%></li>
+      </ul>
+      <span> Contact us: </span>
+      <%= link_to 'techhire@opportunityatwork.org', 'mailto:techhire@opportunityatwork.org' %>
+    </div>
+  </div>
+</footer>

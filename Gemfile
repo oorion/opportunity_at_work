@@ -19,8 +19,14 @@ gem 'dalli'
 gem 'devise'
 gem 'simplecov', :group => :test
 gem 'bootstrap-sass', '~> 3.3.4'
-gem 'sass-rails', '>= 3.2'
+# gem 'sass-rails', '>= 3.2'
 gem 'will_paginate', '~> 3.0.6'
+gem 'modernizr-rails'
+# roy's gems
+gem 'sass-rails', '~> 5.0'
+gem 'rails-sass-images'
+gem 'autoprefixer-rails'
+gem 'bourbon'
 
 group :development, :test do
   gem 'byebug'
@@ -39,4 +45,5 @@ group :development, :test do
   gem 'mocha',              '~> 1.1.0'
   gem 'assert_difference'
   gem 'selenium-webdriver'
+  gem 'faker'
 end

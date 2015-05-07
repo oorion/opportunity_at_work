@@ -1,0 +1,57 @@
+.mod-hero {
+  position: relative;
+  margin-bottom: 30px;
+  padding: 22.5% 12.5% 5.5%;
+  text-align: center;
+  background: image-url("bg_hero.jpg") center bottom;
+  background-size: cover;
+
+  h1 {
+    position: relative;
+    margin-bottom: 22px;
+    padding: 11px;
+    font-size: 24px;
+    line-height: 1.2;
+    color: #fff;
+    background: $blue;
+
+    &::before,
+    &::after {
+      content: "";
+      width: 30px;
+      height: 100%;
+      top: 0;
+      position: absolute;
+      background: inline("bg_banner_left.png") no-repeat;
+      background-size: auto 100%;
+    }
+
+    &::before {
+      left: -30px;
+      background-position: right;
+    }
+
+    &::after {
+      right: -30px;
+      background-image: inline("bg_banner_right.png");
+    }
+  }
+
+  .actions .button:first-child {
+      margin: 0 12px 20px 0;
+  }
+
+  @include min-width(1000px) {
+    padding-top: 225px;
+    padding-bottom: 55px;
+  }
+
+  @include max-width(500px) {
+    padding: 30px 30px 10px;
+
+    h1 {
+      margin-right: 10px;
+      margin-left: 10px;
+    }
+  }
+}

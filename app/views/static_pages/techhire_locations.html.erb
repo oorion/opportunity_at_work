@@ -1,18 +1,12 @@
-<h1>TechHire Locations</h1>
-<h4>TechHire Cities</h4>
-
-<%=tag("div", class: "map", :data => {:techhire_locations => @techhire_locations, :coordinates => @techhire_locations.map {|techhire_location| techhire_location.d3_coordinates}})%>
-
-<div class="city-buttons col-md-offset-8 col-md-4">
-  <button name="button">Chicago</button>
-  <button name="button">Dallas</button>
-  <button name="button">Detroit</button>
-  <button name="button">Huston</button>
-  <button name="button">Indianapolis</button>
-  <button name="button">Los Angeles</button>
-  <button name="button">New York</button>
-  <button name="button">Philadelphia</button>
+<div class="mod-heading location">
+  <h1>TechHire Locations</h1>
 </div>
-<div class="dont-see-city col-md-offset-8">
-  <button name="button">Don't See Your City?</button>
+
+<div class="mod-map layout-wrap">
+  <div class="map"></div>
+
+  <div class="locations">
+    <ul></ul>
+    <p><%= link_to "Don\'t see your city?", "#", class: 'button small' %></p>
+  </div>
 </div>

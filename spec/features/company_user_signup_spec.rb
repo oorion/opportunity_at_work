@@ -8,8 +8,7 @@ RSpec.feature "CompanyUserSignUp", type: :feature do
 
     it "can signup" do
       allow(User).to receive(:generate_password).and_return("abc123abc")
-      visit '/'
-      click_link_or_button("Sign Up")
+      visit signup_path
       expect(page).to have_content("Start hiring")
 
       fill_in 'company[name]', with: "Orion"

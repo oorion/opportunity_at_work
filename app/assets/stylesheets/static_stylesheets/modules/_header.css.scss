@@ -1,0 +1,93 @@
+.mod-header {
+  @extend %clearfix;
+  font-size: 12px;
+  font-weight: $font-weight-bold;
+  text-transform: uppercase;
+  color: #fff;
+  background: $green;
+
+  a {
+    text-decoration: none;
+    color: #fff;
+  }
+
+  h1 {
+    width: 160px;
+    height: 47px;
+    float: left;
+    margin: 20px 0;
+    background: inline("logo.png");
+    background-size: 100%;
+    @include hide-text;
+
+    a {
+      height: 47px;
+      display: block;
+    }
+  }
+
+  nav {
+    float: right;
+    margin: 20px 20px 20px 0;
+    line-height: 47px;
+
+    li {
+      position: relative;
+      float: left;
+      margin-left: 50px;
+    }
+
+    a {
+      @include hocus($additional-selectors: '&.active', $keyboard-only: true) {
+        &::after {
+          content: "";
+          width: 13px;
+          height: 6px;
+          bottom: -20px;
+          left: 50%;
+          position: absolute;
+          display: block;
+          margin-left: -6px;
+          background: inline("bg_nav_active.png");
+          background-size: 100%;
+        }
+      }
+      @include hocus($keyboard-only: true) {
+        color: rgba(#fff, .6);
+
+        &::after {
+          opacity: .6;
+        }
+      }
+    }
+  }
+
+  @include max-width(950px) {
+    h1,
+    nav {
+      float: none;
+    }
+
+    nav {
+      line-height: 2;
+
+      li {
+        float: none;
+        margin-left: 0;
+        padding-left: 0;
+      }
+
+      a {
+        @include hocus($additional-selectors: '&.active') {
+          &::after {
+            top: 50%;
+            left: -30px;
+            margin: -3px 0 0 0;
+            transform: rotate(90deg)
+          }
+        }
+      }
+    }
+  }
+
+}

@@ -1,0 +1,11 @@
+[
+  {"slug": 1, "location": "Chicago", "map_position": [408, 98]},
+  {"slug": 2, "location": "Dallas", "map_position": [338, 196]},
+  {"slug": 3, "location": "Detroit", "map_position": [441, 88]},
+  {"slug": 4, "location": "Houston", "map_position": [353, 230]},
+  {"slug": 5, "location": "Indianapolis", "map_position": [420, 114]},
+  {"slug": 6, "location": "Jacksonville", "map_position": [473, 211]},
+  {"slug": 7, "location": "Los Angeles", "map_position": [157, 159]},
+  {"slug": 8, "location": "New York", "map_position": [511, 87]},
+  {"slug": 10, "location": "Phoenix", "map_position": [212, 177]}
+]

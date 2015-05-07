@@ -7,6 +7,7 @@ RSpec.describe Company, type: :model do
   it { should validate_presence_of(:state) }
   it { should validate_presence_of(:city) }
   it { should validate_presence_of(:email) }
+  it { should validate_uniqueness_of(:email) }
   it do
     should allow_value('company@email.com',
                        'company.name@email.com',
@@ -29,15 +30,15 @@ RSpec.describe Company, type: :model do
   end
 
   it "should count the number of companies by status" do
-    10.times do
-      create(:company)
+    10.times do |i|
+      create(:company, email: "company#{i}@example.com")
     end
     expect(Company.company_count_by_status("uncontacted")).to eq(10)
   end
 
   it "should count order the cities by the number of companies" do
-    10.times do
-      create(:company)
+    10.times do |i|
+      create(:company, email: "company#{i}@example.com")
     end
     expect(Company.company_count_by_city).to eq([["Denver",10]])
   end
